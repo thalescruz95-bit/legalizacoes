@@ -212,7 +212,7 @@ const fmtF=v=>EVMD==="p"?fp(v):money(v);
 const clampV=v=>EVMD==="p"?Math.min(100,Math.max(0,v)):Math.max(0,v);
 function evSeries(rows){
  const n=new Date(),cur=curKey(),dias=new Date(n.getFullYear(),n.getMonth()+1,0).getDate(),hj=n.getDate();
- if(EVMD==="p"){const T=rows.length,ap=rows.filter(approved).map(x=>x.a.slice(0,7)),pc=k=>T?ap.filter(a=>a<=k).length/T*100:0;
+ if(EVMD==="p"){const T=rows.length,ap=rows.filter(approved).map(x=>x.a.slice(0,7)<cur?x.a.slice(0,7):cur),pc=k=>T?ap.filter(a=>a<=k).length/T*100:0;
   return EV_ALL.map(k=>{if(k>cur)return{k,real:null,fit:null};const v=pc(k);if(k!==cur)return{k,real:v,fit:v};const pv=pc(addM(k,-1));return{k,real:v,fit:Math.min(100,pv+(v-pv)*dias/hj),part:true}})}
  return EV_ALL.map(k=>{if(k>cur)return{k,real:null,fit:null};const v=rows.filter(x=>approved(x)&&x.a.slice(0,7)===k).reduce((s,x)=>s+(+x.v||0),0);return{k,real:v,fit:k===cur?v/hj*dias:v,part:k===cur}});
 }
@@ -275,8 +275,9 @@ function ev(mode){
  G("grid").innerHTML=per.map(p=>{if(!p.rows.length)return`<div class="card"><b style="color:${p.cor}">${esc(p.c)}</b><div class="empty">Sem unidades cadastradas neste contrato.</div></div>`;
   const st=evStats(p.s),na=p.rows.filter(approved).length,ov=mode==="p"?(OV[p.c]||{}):{},ol=ov[last];
   const info=mode==="p"?`Hoje: <b>${fp(st.hoje)}</b> (${na} de ${p.rows.length} unidades) • Projeção ${mlab(last)}: ${ol!=null?`<b>${fp(+ol)}</b> ajustada (automática ${fp(st.fim)})`:`<b>${fp(st.fim)}</b>`} • 100% previsto: <b>${st.meta}</b>`:`${rb}: <b>${money(st.base)}</b> • Projeção ${rp}: <b>${money(st.pj)}</b>`;
+  const hojeISO=new Date().toISOString().slice(0,10),fut=p.rows.filter(x=>approved(x)&&x.a>hojeISO),pl=fut.length>1?"s":"",warn=fut.length?`<div class="sub" style="font-size:12px;margin-top:4px;color:#fcd34d">⚠ ${fut.length} unidade${pl} com data de aprovação no futuro: ${fut.slice(0,3).map(x=>esc(x.u)+" ("+date(x.a)+")").join(", ")}${fut.length>3?"…":""}${mode==="p"?` — contada${pl} como aprovada${pl} no mês atual`:""}. Confira a data.</div>`:"";
   const btn=mode==="p"?` <button class="ico only-edit" data-prj="${esc(p.c)}" style="font-size:11px;margin-left:6px">✎ Projeção</button>`:"";
-  return`<div class="card"><div class="evhead"><b style="color:${p.cor}">${esc(p.c)}</b><span style="font-size:12px;font-weight:800">${evTrend(st.rg)}${btn}</span></div><div class="sub" style="font-size:12px;margin-top:3px">${info}</div>${evSVG(p.s,p.cor,null,mode==="p"?ov:null)}${mode==="p"&&EDIT&&EDP===p.c?prjEditor(p,st):""}</div>`}).join("");
+  return`<div class="card"><div class="evhead"><b style="color:${p.cor}">${esc(p.c)}</b><span style="font-size:12px;font-weight:800">${evTrend(st.rg)}${btn}</span></div><div class="sub" style="font-size:12px;margin-top:3px">${info}</div>${warn}${evSVG(p.s,p.cor,null,mode==="p"?ov:null)}${mode==="p"&&EDIT&&EDP===p.c?prjEditor(p,st):""}</div>`}).join("");
 }
 
 function prjEditor(p,st){const ov=OV[p.c]||{};
