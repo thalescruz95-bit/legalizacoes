@@ -94,19 +94,19 @@ body:not(.edit) .only-edit{display:none!important}
 <section id="evp" style="display:none"><div class="top"><div><h1>Evolução e Tendência (%)</h1><div class="sub" id="evpsub"></div></div></div>
 <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:16px"><label class="sub" style="font-size:12px;display:flex;align-items:center;gap:8px">Projetar <select id="evph" class="field" style="width:auto" onchange="EVH=+this.value;try{sessionStorage.setItem('evh',EVH)}catch(e){}ev('p')"></select></label></div>
 <div class="cards c4" id="evpkpi"></div>
-<div class="card" style="margin-bottom:16px"><b>Evolução da média geral de aprovação dos contratos</b><div class="sub" id="evpavgsub"></div><div id="evpavg"></div></div>
+<div class="card" style="margin-bottom:16px"><div class="evhead"><b>Evolução da média geral de aprovação dos contratos</b><span id="evpavgbtn"></span></div><div class="sub" id="evpavgsub"></div><div id="evpavg"></div><div id="evpavged"></div></div>
 <div class="evleg"><span><svg width="26" height="8"><line x1="0" x2="26" y1="4" y2="4" stroke="#3b82f6" stroke-width="2.6"/></svg>% aprovado (realizado)</span><span><svg width="26" height="8"><line x1="0" x2="26" y1="4" y2="4" stroke="#3b82f6" stroke-width="2" stroke-dasharray="7 5"/></svg>Projeção</span><span><svg width="26" height="8"><line x1="0" x2="26" y1="4" y2="4" stroke="#8b95a7" stroke-width="1.5" stroke-dasharray="2 4"/></svg>Tendência linear</span><span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="#0f1115" stroke="#3b82f6" stroke-width="2"/></svg>Mês corrente (parcial)</span><span><svg width="26" height="10"><line x1="0" x2="26" y1="5" y2="5" stroke="#3b82f6" stroke-width="2.4" stroke-dasharray="10 3 2 3"/><rect x="9" y="1" width="8" height="8" rx="1.5" fill="#3b82f6"/></svg>Projeção ajustada (manual)</span></div>
 <div class="grid2" id="evpgrid"></div>
-<div class="sub" style="font-size:11px;margin-top:12px">Como é calculado: cada ponto é o % acumulado de unidades do contrato em Regular/Aprovado com data de aprovação até o fim daquele mês, dividido pelo total de unidades cadastradas hoje no contrato. A janela anda sozinha a cada mês (os últimos 6 meses até o mês atual + os meses de projeção escolhidos). O mês corrente entra na tendência pelo ritmo diário de novas aprovações. A tendência é uma reta de mínimos quadrados, limitada entre 0% e 100%. A média geral é a média simples dos % dos contratos que têm unidades cadastradas. No modo edição, o botão ✎ Projeção de cada contrato permite digitar o % de cada mês projetado; os valores ficam salvos na planilha e, quando o mês passa, o quadrado cinza mostra o que foi projetado para comparar com o realizado.</div>
+<div class="sub" style="font-size:11px;margin-top:12px">Como é calculado: cada ponto é o % acumulado de unidades do contrato em Regular/Aprovado com data de aprovação até o fim daquele mês, dividido pelo total de unidades cadastradas hoje no contrato. A janela anda sozinha a cada mês (os últimos 6 meses até o mês atual + os meses de projeção escolhidos). O mês corrente entra na tendência pelo ritmo diário de novas aprovações. A tendência é uma reta de mínimos quadrados, limitada entre 0% e 100%. A média geral é a média simples dos % dos contratos que têm unidades cadastradas. No modo edição, o botão ✎ Editar (em cada contrato e na média) permite digitar o ritmo da tendência e o % de cada mês projetado, usando a sugestão automática como referência; os valores ficam salvos na planilha e, quando o mês passa, o quadrado cinza mostra o que foi projetado para comparar com o realizado.</div>
 </section>
 
 <section id="evr" style="display:none"><div class="top"><div><h1>Evolução e Tendência (R$)</h1><div class="sub" id="evrsub"></div></div></div>
 <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:16px"><label class="sub" style="font-size:12px;display:flex;align-items:center;gap:8px">Projetar <select id="evrh" class="field" style="width:auto" onchange="EVH=+this.value;try{sessionStorage.setItem('evh',EVH)}catch(e){}ev('r')"></select></label></div>
 <div class="cards c4" id="evrkpi"></div>
-<div class="card" style="margin-bottom:16px"><b>Evolução da média geral de PME dos contratos</b><div class="sub" id="evravgsub"></div><div id="evravg"></div></div>
-<div class="evleg"><span><svg width="26" height="8"><line x1="0" x2="26" y1="4" y2="4" stroke="#3b82f6" stroke-width="2.6"/></svg>PME realizada</span><span><svg width="26" height="8"><line x1="0" x2="26" y1="4" y2="4" stroke="#3b82f6" stroke-width="2" stroke-dasharray="7 5"/></svg>Projeção</span><span><svg width="26" height="8"><line x1="0" x2="26" y1="4" y2="4" stroke="#8b95a7" stroke-width="1.5" stroke-dasharray="2 4"/></svg>Tendência linear</span><span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="#0f1115" stroke="#3b82f6" stroke-width="2"/></svg>Mês corrente (parcial)</span></div>
+<div class="card" style="margin-bottom:16px"><div class="evhead"><b>Evolução da média geral de PME dos contratos</b><span id="evravgbtn"></span></div><div class="sub" id="evravgsub"></div><div id="evravg"></div><div id="evravged"></div></div>
+<div class="evleg"><span><svg width="26" height="8"><line x1="0" x2="26" y1="4" y2="4" stroke="#3b82f6" stroke-width="2.6"/></svg>PME realizada</span><span><svg width="26" height="8"><line x1="0" x2="26" y1="4" y2="4" stroke="#3b82f6" stroke-width="2" stroke-dasharray="7 5"/></svg>Projeção</span><span><svg width="26" height="8"><line x1="0" x2="26" y1="4" y2="4" stroke="#8b95a7" stroke-width="1.5" stroke-dasharray="2 4"/></svg>Tendência linear</span><span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="#0f1115" stroke="#3b82f6" stroke-width="2"/></svg>Mês corrente (parcial)</span><span><svg width="26" height="10"><line x1="0" x2="26" y1="5" y2="5" stroke="#3b82f6" stroke-width="2.4" stroke-dasharray="10 3 2 3"/><rect x="9" y="1" width="8" height="8" rx="1.5" fill="#3b82f6"/></svg>Projeção ajustada (manual)</span></div>
 <div class="grid2" id="evrgrid"></div>
-<div class="sub" style="font-size:11px;margin-top:12px">Como é calculado: cada ponto soma a projeção financeira (R$) das unidades aprovadas naquele mês, pela data de aprovação (mesma regra da PME). A janela anda sozinha a cada mês (os últimos 6 meses até o mês atual + os meses de projeção escolhidos). O mês corrente entra na tendência pelo ritmo diário (realizado ÷ dias decorridos × dias do mês). A tendência é uma reta de mínimos quadrados; valores projetados negativos aparecem como zero. A média geral é o total do mês dividido pelo número de contratos com unidades cadastradas.</div>
+<div class="sub" style="font-size:11px;margin-top:12px">Como é calculado: cada ponto soma a projeção financeira (R$) das unidades aprovadas naquele mês, pela data de aprovação (mesma regra da PME). A janela anda sozinha a cada mês (os últimos 6 meses até o mês atual + os meses de projeção escolhidos). O mês corrente entra na tendência pelo ritmo diário (realizado ÷ dias decorridos × dias do mês). A tendência é uma reta de mínimos quadrados; valores projetados negativos aparecem como zero. A média geral é o total do mês dividido pelo número de contratos com unidades cadastradas. No modo edição, o botão ✎ Editar (em cada contrato e na média) permite digitar o ritmo da tendência (R$/mês) e o valor de cada mês projetado, usando a sugestão automática como referência; os valores ficam salvos na planilha e, quando o mês passa, o quadrado cinza mostra o que foi projetado para comparar com o realizado.</div>
 </section>
 
 <section id="pme" style="display:none"><div class="top"><div><h1>Controle PME</h1><div class="sub">Competência financeira da aprovação/regularização</div></div></div>
@@ -172,7 +172,7 @@ function markSort(){document.querySelectorAll("th.sort").forEach(th=>{let st=S[t
 document.querySelectorAll("th.sort").forEach(th=>th.insertAdjacentHTML("beforeend",'<span class="ar"></span>'));
 document.addEventListener("click",e=>{let th=e.target.closest("th.sort");if(!th)return;let t=th.dataset.t,k=th.dataset.k,st=S[t];st.d=st.k===k?-st.d:1;st.k=k;markSort();t==="dash"?render():renderPME()});
 function exportJSON(){let a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(ALL,null,1)],{type:"application/json"}));a.download="dados.json";a.click()}
-function importJSON(ev){let f=ev.target.files[0];ev.target.value="";if(!f)return;let r=new FileReader();r.onload=async()=>{try{let j=JSON.parse(r.result);if(!Array.isArray(j))throw new Error("Arquivo inválido. Use um dados.json.");j=j.filter(x=>!String(x.t||"").startsWith("Projeção %"));if(!confirm(`Enviar ${j.length} registros e SUBSTITUIR os dados de ${TIPO.toUpperCase()}? (o outro tipo não é alterado)`))return;await api({action:"replace",tipo:TIPO,items:norm(j).map(x=>({...x,x:String(x.x),t:TIPO}))});await load();toast(`${j.length} registros importados em ${TIPO}.`)}catch(e){alert(e.message||"Arquivo inválido.")}};r.readAsText(f)}
+function importJSON(ev){let f=ev.target.files[0];ev.target.value="";if(!f)return;let r=new FileReader();r.onload=async()=>{try{let j=JSON.parse(r.result);if(!Array.isArray(j))throw new Error("Arquivo inválido. Use um dados.json.");j=j.filter(x=>!String(x.t||"").startsWith("Projeção "));if(!confirm(`Enviar ${j.length} registros e SUBSTITUIR os dados de ${TIPO.toUpperCase()}? (o outro tipo não é alterado)`))return;await api({action:"replace",tipo:TIPO,items:norm(j).map(x=>({...x,x:String(x.x),t:TIPO}))});await load();toast(`${j.length} registros importados em ${TIPO}.`)}catch(e){alert(e.message||"Arquivo inválido.")}};r.readAsText(f)}
 const ST5=["Não iniciado","Em análise/Protocolado","Em andamento","Aguardando cliente","Regular/Aprovado"],COR=["#94a3b8","#3b82f6","#f59e0b","#a855f7","#16a34a"];
 let SEL=null;
 const allC=()=>[...contracts,...new Set(d.map(x=>x.c).filter(y=>!contracts.includes(y)))],pf=p=>p.toLocaleString("pt-BR",{maximumFractionDigits:1})+"%";
@@ -198,17 +198,19 @@ function vigente(){
  col("vp",[{l:"Realizado até hoje",v:tot,g:"green"},{l:"Projeção p/ fim do mês",v:proj,g:""}]);
 }
 
-/* ===== Evolução e tendência: (%) aprovação acumulada e (R$) PME mensal — janela móvel ===== */
+/* ===== Evolução e tendência: (%) e (R$) — janela móvel; projeção e tendência editáveis ===== */
 const addM=(k,n)=>{let y=+k.slice(0,4),m=+k.slice(5,7)-1+n;y+=Math.floor(m/12);m=((m%12)+12)%12;return`${y}-${String(m+1).padStart(2,"0")}`};
 const curKey=()=>{const n=new Date();return`${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,"0")}`};
-let OV={},EDP=null,EVH=3,EVMD="p",EV_BASE=[],EV_PROJ=[],EV_ALL=[];try{EVH=+sessionStorage.getItem("evh")||3}catch(e){}
-const PRJT=()=>"Projeção % "+TIPO;
+let OV={p:{},r:{}},EDP=null,EVH=3,EVMD="p",EV_BASE=[],EV_PROJ=[],EV_ALL=[];try{EVH=+sessionStorage.getItem("evh")||3}catch(e){}
+const AVG="__media__",PRJT=m=>(m==="r"?"Projeção R$ ":"Projeção % ")+TIPO,PRJID=(m,c)=>(m==="r"?"prjr-":"prj-")+TIPO+"-"+c;
+const prjParse=e=>{try{const o=JSON.parse(e||"{}");return o&&o.m?{m:o.m||{},r:o.r??null}:{m:o||{},r:null}}catch(x){return{m:{},r:null}}};
 function evWin(){const c=curKey();EV_BASE=[...Array(6)].map((_,i)=>addM(c,i-5));EV_PROJ=[...Array(EVH)].map((_,i)=>addM(c,i+1));EV_ALL=[...EV_BASE,...EV_PROJ]}
 const EVC=["#3b82f6","#16a34a","#f59e0b","#a855f7","#ef4444","#06b6d4","#ec4899","#84cc16"],EVX={muted:"#8b95a7",line:"#252a35",txt:"#e8ecf3",card:"#0f1115",blue:"#2563eb"};
 const mlab=k=>months[+k.slice(5,7)-1].slice(0,3)+"/"+k.slice(2,4);
 const fp=v=>(Math.round(v*10)/10).toLocaleString("pt-BR")+"%";
 const fmtC=v=>EVMD==="p"?fp(v):v>=1e6?"R$ "+(v/1e6).toLocaleString("pt-BR",{maximumFractionDigits:1})+" mi":v>=1e3?"R$ "+(v/1e3).toLocaleString("pt-BR",{maximumFractionDigits:1})+" mil":"R$ "+Math.round(v);
 const fmtF=v=>EVMD==="p"?fp(v):money(v);
+const fmtRate=v=>EVMD==="p"?(Math.round(v*10)/10).toLocaleString("pt-BR")+" p.p.":money(v);
 const clampV=v=>EVMD==="p"?Math.min(100,Math.max(0,v)):Math.max(0,v);
 function evSeries(rows){
  const n=new Date(),cur=curKey(),dias=new Date(n.getFullYear(),n.getMonth()+1,0).getDate(),hj=n.getDate();
@@ -217,15 +219,28 @@ function evSeries(rows){
  return EV_ALL.map(k=>{if(k>cur)return{k,real:null,fit:null};const v=rows.filter(x=>approved(x)&&x.a.slice(0,7)===k).reduce((s,x)=>s+(+x.v||0),0);return{k,real:v,fit:k===cur?v/hj*dias:v,part:k===cur}});
 }
 function evReg(s){const p=s.map((o,i)=>[i,o.fit]).filter(q=>q[1]!=null);if(p.length<2)return null;const n=p.length,mx=p.reduce((a,q)=>a+q[0],0)/n,my=p.reduce((a,q)=>a+q[1],0)/n;let sxy=0,sxx=0;p.forEach(([x,y])=>{sxy+=(x-mx)*(y-my);sxx+=(x-mx)**2});const b=sxx?sxy/sxx:0,a=my-b*mx;return{a,b,at:i=>clampV(a+b*i)}}
-function evStats(s){const rg=evReg(s),li=s.reduce((m,o,i)=>o.real!=null?i:m,-1),N=s.length,hoje=li>=0?s[li].real:0,fim=rg?rg.at(N-1):hoje;
- const base=s.filter(o=>EV_BASE.includes(o.k)&&o.real!=null).reduce((a,o)=>a+o.real,0),pj=EV_PROJ.reduce((a,k)=>{const i=EV_ALL.indexOf(k),o=s[i];return a+(o.real!=null?o.real:rg?rg.at(i):0)},0);
- let meta="—";if(EVMD==="p"){if(hoje>=100)meta="100% atingido";else if(rg&&rg.b>0){const i=Math.ceil((100-rg.a)/rg.b);meta=i-li>60?"mais de 5 anos":"~"+mlab(addM(EV_ALL[0],i))}else if(rg)meta="sem previsão (tendência parada)"}
- return{rg,hoje,fim,base,pj,meta}}
-const evTrend=rg=>rg?`<span class="${rg.b>=0?"up":"down"}">${rg.b>=0?"▲":"▼"} ${EVMD==="p"?(Math.round(Math.abs(rg.b)*10)/10).toLocaleString("pt-BR")+" p.p.":money(Math.abs(rg.b))}/mês</span>`:`<span class="sub">dados insuficientes</span>`;
-function evSVG(s,cor,ghosts,ov,W=640,H=250){
- ov=ov||{};const N=s.length,dense=N>12,rg=evReg(s),tr=rg?s.map((_,i)=>rg.at(i)):[],li=s.reduce((m,o,i)=>o.real!=null?i:m,-1),hasOv=s.some(o=>ov[o.k]!=null&&o.real==null);
+/* Projeção efetiva: valor digitado no mês > ritmo digitado > sugestão automática */
+function evEff(s,o,sugFn){
+ o=o||{m:{},r:null};const m=o.m||{},rg=evReg(s),N=s.length,li=s.reduce((a,x,i)=>x.real!=null?i:a,-1),b0=li>=0?s[li].fit:0;
+ const auto=i=>sugFn?sugFn(i):rg?rg.at(i):b0,rt=o.r!=null&&o.r!==""&&!isNaN(+o.r)?+o.r:null;
+ const sug=i=>rt!=null?clampV(b0+rt*(i-li)):auto(i),typed=i=>m[s[i].k]!=null,val=i=>typed(i)?+m[s[i].k]:sug(i);
+ const manual=rt!=null||s.some((x,i)=>i>li&&typed(i)),span=N-1-li;
+ const autoSlope=sugFn?(span>0&&li>=0?(sugFn(N-1)-b0)/span:null):rg?rg.b:null;
+ const slope=rt!=null?rt:manual&&li>=0&&span>0?(val(N-1)-b0)/span:autoSlope;
+ return{m,rt,rg,li,b0,N,auto,sug,typed,val,manual,slope,autoSlope};
+}
+function evStats(s,E){const{li,N,val}=E,hoje=li>=0?s[li].real:0,fim=li<N-1?val(N-1):hoje;
+ const base=s.filter(o=>EV_BASE.includes(o.k)&&o.real!=null).reduce((a,o)=>a+o.real,0),pj=EV_PROJ.reduce((a,k)=>{const i=EV_ALL.indexOf(k);return a+(s[i].real!=null?s[i].real:val(i))},0),apj=EV_PROJ.reduce((a,k)=>{const i=EV_ALL.indexOf(k);return a+(s[i].real!=null?s[i].real:E.auto(i))},0);
+ let meta="—";
+ if(EVMD==="p"){if(hoje>=100)meta="100% atingido";else{let f=-1;for(let i=li+1;i<N;i++)if(val(i)>=99.95){f=i;break}
+  if(f>=0)meta=mlab(s[f].k);else if(E.slope>0){const n=Math.ceil((100-fim)/E.slope);meta=n>60?"mais de 5 anos":"~"+mlab(addM(s[N-1].k,n))}else meta="sem previsão (ritmo parado)"}}
+ return{hoje,fim,base,pj,apj,meta}}
+const evTrend=E=>E.slope==null?`<span class="sub">dados insuficientes</span>`:`<span class="${E.slope>=0?"up":"down"}">${E.slope>=0?"▲":"▼"} ${fmtRate(Math.abs(E.slope))}/mês</span>${E.manual?` <span class="sub" style="font-size:11px;font-weight:400">(ajustada)</span>`:""}`;
+function evSVG(s,cor,ghosts,E,W=640,H=250){
+ const N=s.length,dense=N>12,rg=E.rg,tr=rg?s.map((_,i)=>rg.at(i)):[],li=E.li,hasOv=E.manual,m=E.m;
  const L=EVMD==="p"?46:66,R=14,T=30,B=30,PX=20,st=(W-L-R-2*PX)/(N-1),X=i=>L+PX+i*st;
- const top=Math.max(1,...s.map(o=>Math.max(o.real||0,o.fit||0)),...tr,...(ghosts||[]).flatMap(g=>g.s.map(o=>o.real||0)),...s.map(o=>ov[o.k]!=null?+ov[o.k]:0));
+ const fut=[];for(let i=li+1;i<N;i++)fut.push(E.val(i),E.auto(i));
+ const top=Math.max(1,...s.map(o=>Math.max(o.real||0,o.fit||0)),...tr,...fut,...(ghosts||[]).flatMap(g=>g.s.map(o=>o.real||0)),...s.map(o=>m[o.k]!=null?+m[o.k]:0));
  const mx=EVMD==="p"?Math.min(100,Math.max(10,Math.ceil(top*1.12/10)*10)):top*1.18,steps=EVMD==="p"?5:4,Y=v=>T+(H-T-B)*(1-Math.min(v,mx)/mx),P=a=>a.map(([i,v])=>`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(" ");
  const zx=X(EV_ALL.indexOf(EV_PROJ[0]))-st/2,lab=(x,y,t,c,ex)=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="10" fill="${c}" ${ex||""} paint-order="stroke" stroke="${EVX.card}" stroke-width="3">${t}</text>`;
  let g=`<svg class="evsvg" viewBox="0 0 ${W} ${H}" role="img">`;
@@ -236,68 +251,81 @@ function evSVG(s,cor,ghosts,ov,W=640,H=250){
  if(rg)g+=`<polyline points="${P(tr.map((v,i)=>[i,v]))}" fill="none" stroke="${EVX.muted}" stroke-width="1.2" stroke-dasharray="2 4" opacity="${hasOv?.5:1}"/>`;
  const real=s.map((o,i)=>[i,o.real]).filter(q=>q[1]!=null);
  if(real.length>1)g+=`<polyline points="${P(real)}" fill="none" stroke="${cor}" stroke-width="2.6" stroke-linejoin="round"/>`;
- if(li>=0&&li<N-1&&(rg||hasOv)){
-  if(!hasOv){ // só a projeção automática
-   g+=`<polyline points="${P([[li,s[li].fit],...tr.map((v,i)=>[i,v]).slice(li+1)])}" fill="none" stroke="${cor}" stroke-width="2" stroke-dasharray="7 5"/>`;
-   for(let i=li+1;i<N;i++)g+=`<circle cx="${X(i)}" cy="${Y(tr[i])}" r="4" fill="${EVX.card}" stroke="${cor}" stroke-width="2"><title>${mlab(s[i].k)} (projeção): ${fmtF(tr[i])}</title></circle>${!dense||i===N-1?lab(X(i),Y(tr[i])-10,fmtC(tr[i]),cor,'font-style="italic"'):""}`;
-  }else{ // projeção ajustada em destaque; automática fica só como linha fina de referência
-   const auto=i=>rg?tr[i]:s[li].fit,val=i=>ov[s[i].k]!=null?+ov[s[i].k]:auto(i);
-   if(rg)g+=`<polyline points="${P([[li,s[li].fit],...tr.map((v,i)=>[i,v]).slice(li+1)])}" fill="none" stroke="${cor}" stroke-width="1.3" stroke-dasharray="4 4" opacity=".35"/>`;
-   const pts=[[li,s[li].fit]];for(let i=li+1;i<N;i++)pts.push([i,val(i)]);
+ if(li>=0&&li<N-1){
+  const autoPts=[[li,E.b0]];for(let i=li+1;i<N;i++)autoPts.push([i,E.auto(i)]);
+  if(!hasOv){
+   g+=`<polyline points="${P(autoPts)}" fill="none" stroke="${cor}" stroke-width="2" stroke-dasharray="7 5"/>`;
+   for(let i=li+1;i<N;i++)g+=`<circle cx="${X(i)}" cy="${Y(E.auto(i))}" r="4" fill="${EVX.card}" stroke="${cor}" stroke-width="2"><title>${mlab(s[i].k)} (sugestão automática): ${fmtF(E.auto(i))}</title></circle>${!dense||i===N-1?lab(X(i),Y(E.auto(i))-10,fmtC(E.auto(i)),cor,'font-style="italic"'):""}`;
+  }else{
+   g+=`<polyline points="${P(autoPts)}" fill="none" stroke="${cor}" stroke-width="1.3" stroke-dasharray="4 4" opacity=".35"/>`;
+   const pts=[[li,E.b0]];for(let i=li+1;i<N;i++)pts.push([i,E.val(i)]);
    g+=`<polyline points="${P(pts)}" fill="none" stroke="${cor}" stroke-width="2.6" stroke-dasharray="10 4 2 4" stroke-linejoin="round"/>`;
-   for(let i=li+1;i<N;i++){const v=val(i),man=ov[s[i].k]!=null,a=auto(i),below=man&&rg&&v<a-0.5,ly=below?Y(v)+17:Y(v)-11;
-    g+=man?`<rect x="${X(i)-5}" y="${Y(v)-5}" width="10" height="10" rx="2" fill="${cor}"><title>${mlab(s[i].k)} — ajustada: ${fp(v)} (automática ${fp(a)})</title></rect>`:`<circle cx="${X(i)}" cy="${Y(v)}" r="4" fill="${EVX.card}" stroke="${cor}" stroke-width="2"><title>${mlab(s[i].k)} (automática): ${fp(v)}</title></circle>`;
-    if(!dense||i===N-1)g+=lab(X(i),ly,fmtC(v),cor,man?'font-weight="700"':'font-style="italic"');}
+   for(let i=li+1;i<N;i++){const v=E.val(i),a=E.auto(i),ty=E.typed(i),ly=v<a-mx*.01?Y(v)+17:Y(v)-11;
+    g+=ty?`<rect x="${X(i)-5}" y="${Y(v)-5}" width="10" height="10" rx="2" fill="${cor}"><title>${mlab(s[i].k)} — digitado: ${fmtF(v)} (sugestão ${fmtF(a)})</title></rect>`:`<circle cx="${X(i)}" cy="${Y(v)}" r="4" fill="${EVX.card}" stroke="${cor}" stroke-width="2"><title>${mlab(s[i].k)} — ${E.rt!=null?"pelo ritmo digitado":"sugestão"}: ${fmtF(v)}</title></circle>`;
+    if(!dense||i===N-1)g+=lab(X(i),ly,fmtC(v),cor,ty?'font-weight="700"':'font-style="italic"');}
   }
  }
- s.forEach((o,i)=>{if(ov[o.k]==null||o.real==null)return;const v=+ov[o.k];g+=`<rect x="${X(i)-4.5}" y="${Y(v)-4.5}" width="9" height="9" rx="1.5" fill="none" stroke="${EVX.muted}" stroke-width="1.6"><title>${mlab(o.k)} — projetado: ${fp(v)} • realizado: ${fp(o.real)}</title></rect>`});
+ s.forEach((o,i)=>{if(m[o.k]==null||o.real==null)return;const v=+m[o.k];g+=`<rect x="${X(i)-4.5}" y="${Y(v)-4.5}" width="9" height="9" rx="1.5" fill="none" stroke="${EVX.muted}" stroke-width="1.6"><title>${mlab(o.k)} — projetado: ${fmtF(v)} • realizado: ${fmtF(o.real)}</title></rect>`});
  real.forEach(([i,v])=>{const o=s[i];
   if(o.part&&Math.abs(o.fit-v)>1e-9)g+=`<line x1="${X(i)}" x2="${X(i)}" y1="${Y(v)}" y2="${Y(o.fit)}" stroke="${cor}" stroke-dasharray="2 3" opacity=".7"/><circle cx="${X(i)}" cy="${Y(o.fit)}" r="2.5" fill="${cor}"><title>Pelo ritmo atual, ${mlab(o.k)} fecharia em ${fmtF(o.fit)}</title></circle>`;
   g+=`<circle cx="${X(i)}" cy="${Y(v)}" r="4.5" fill="${o.part?EVX.card:cor}" stroke="${cor}" stroke-width="2"><title>${mlab(o.k)}${o.part?" (até hoje)":""}: ${fmtF(v)}</title></circle>${lab(X(i),Y(o.part?Math.max(v,o.fit):v)-10,fmtC(v),EVX.txt,'font-weight="700"')}`});
  return g+"</svg>";
 }
 function ev(mode){
- EVMD=mode;const P=mode==="p"?"evp":"evr",G=id=>document.getElementById(P+id);evWin();
+ EVMD=mode;const P=mode==="p"?"evp":"evr",G=id=>document.getElementById(P+id),OVm=OV[mode];evWin();
  const last=EV_PROJ[EVH-1],rb=`${mlab(EV_BASE[0])} a ${mlab(EV_BASE[5])}`,rp=EVH>1?`${mlab(EV_PROJ[0])} a ${mlab(last)}`:mlab(last);
  G("h").innerHTML=[...Array(12)].map((_,i)=>`<option value="${i+1}">${i+1} ${i?"meses":"mês"} (até ${mlab(addM(curKey(),i+1))})</option>`).join("");G("h").value=EVH;
- G("sub").textContent=`${mode==="p"?"% de unidades aprovadas":"PME (R$) por mês de aprovação"} • realizado de ${rb} (mês atual parcial) • tendência linear • projeção de ${rp}`;
- const per=allC().map((c,i)=>{const rows=d.filter(x=>x.c===c);return{c,cor:EVC[i%EVC.length],rows,s:evSeries(rows)}}),act=per.filter(p=>p.rows.length),nC=act.length;
+ G("sub").textContent=`${mode==="p"?"% de unidades aprovadas":"PME (R$) por mês de aprovação"} • realizado de ${rb} (mês atual parcial) • tendência • projeção de ${rp}`;
+ const per=allC().map((c,i)=>{const rows=d.filter(x=>x.c===c),s=evSeries(rows);return{c,cor:EVC[i%EVC.length],rows,s,E:evEff(s,OVm[c])}}),act=per.filter(p=>p.rows.length),nC=act.length,q=Math.max(nC,1);
  let avg;
  if(mode==="p")avg=nC?EV_ALL.map((k,i)=>{const o=act[0].s[i];return o.real==null?{k,real:null,fit:null}:{k,real:act.reduce((a,p)=>a+p.s[i].real,0)/nC,fit:act.reduce((a,p)=>a+p.s[i].fit,0)/nC,part:o.part}}):evSeries([]);
- else{const t=evSeries(d),q=Math.max(nC,1);avg=t.map(o=>({...o,real:o.real==null?null:o.real/q,fit:o.fit==null?null:o.fit/q}))}
- let avgOv={};
- if(mode==="p"&&nC){const regs=act.map(p=>evReg(p.s));EV_ALL.forEach((k,i)=>{if(!act.some(p=>(OV[p.c]||{})[k]!=null))return;avgOv[k]=act.reduce((a,p,j)=>{const o=(OV[p.c]||{})[k];return a+(o!=null?+o:p.s[i].real!=null?p.s[i].real:regs[j]?regs[j].at(i):0)},0)/nC})}
- const sA=evStats(avg),leg=`<div class="evleg">${act.map(p=>`<span><i style="width:14px;height:3px;background:${p.cor};display:inline-block;border-radius:2px"></i>${esc(p.c)}</span>`).join("")}</div>`;
+ else avg=evSeries(d).map(o=>({...o,real:o.real==null?null:o.real/q,fit:o.fit==null?null:o.fit/q}));
+ const sugAvg=i=>nC?act.reduce((a,p)=>a+(p.s[i].real!=null?p.s[i].real:p.E.val(i)),0)/nC:0,EA=evEff(avg,OVm[AVG],sugAvg),sA=evStats(avg,EA);
+ const leg=`<div class="evleg">${act.map(p=>`<span><i style="width:14px;height:3px;background:${p.cor};display:inline-block;border-radius:2px"></i>${esc(p.c)}</span>`).join("")}</div>`;
+ const anyC=act.some(p=>p.E.manual),src=EA.manual?"editada na média":anyC?"inclui ajustes dos contratos":"sugestão automática",note=t=>`<div class="sub" style="font-size:12px;font-weight:400;margin-top:3px">${t}</div>`;
  let kpi;
  if(mode==="p"){const na=d.filter(approved).length,geral=d.length?na/d.length*100:0;
-  kpi=[["% APROVADO GERAL (HOJE)",fp(geral)+`<div class="sub" style="font-size:12px;font-weight:400;margin-top:3px">${na} de ${d.length} unidades</div>`],["MÉDIA DOS CONTRATOS (HOJE)",fp(sA.hoje)],["TENDÊNCIA DA MÉDIA",evTrend(sA.rg)],[`MÉDIA PROJETADA EM ${mlab(last).toUpperCase()}`,avgOv[last]!=null?fp(avgOv[last])+`<div class="sub" style="font-size:12px;font-weight:400;margin-top:3px">ajustada • automática ${fp(sA.fim)}</div>`:fp(sA.fim)]];
-  G("avgsub").innerHTML=`Média simples de ${nC} contrato${nC===1?"":"s"} com unidades • linhas finas = cada contrato • tendência ${evTrend(sA.rg)} • 100% previsto: <b>${sA.meta}</b>`;
- }else{const t=evSeries(d),sT=evStats(t),mb=t.filter(o=>EV_BASE.includes(o.k)&&o.real!=null).length||1;
-  kpi=[[`REALIZADO ${rb.toUpperCase()}`,money(sT.base)],["MÉDIA MENSAL POR CONTRATO",money(sT.base/mb/Math.max(nC,1))],["TENDÊNCIA DA MÉDIA",evTrend(sA.rg)],[`PROJEÇÃO ${rp.toUpperCase()} (TOTAL)`,money(sT.pj)]];
-  G("avgsub").innerHTML=`Média mensal de ${nC} contrato${nC===1?"":"s"} com unidades • linhas finas = cada contrato • tendência ${evTrend(sA.rg)} • projeção ${rp}: <b>${money(sA.pj)}</b> por contrato`;
+  kpi=[["% APROVADO GERAL (HOJE)",fp(geral)+note(`${na} de ${d.length} unidades`)],["MÉDIA DOS CONTRATOS (HOJE)",fp(sA.hoje)],["TENDÊNCIA DA MÉDIA",evTrend(EA)],[`MÉDIA PROJETADA EM ${mlab(last).toUpperCase()}`,fp(sA.fim)+note(src)]];
+  G("avgsub").innerHTML=`Média simples de ${nC} contrato${nC===1?"":"s"} com unidades • linhas finas = cada contrato • tendência ${evTrend(EA)} • 100% previsto: <b>${sA.meta}</b>`;
+ }else{const tb=act.reduce((a,p)=>a+evStats(p.s,p.E).base,0),tp=EA.manual?sA.pj*q:act.reduce((a,p)=>a+evStats(p.s,p.E).pj,0),mb=avg.filter(o=>EV_BASE.includes(o.k)&&o.real!=null).length||1;
+  kpi=[[`REALIZADO ${rb.toUpperCase()}`,money(tb)],["MÉDIA MENSAL POR CONTRATO",money(tb/mb/q)],["TENDÊNCIA DA MÉDIA",evTrend(EA)],[`PROJEÇÃO ${rp.toUpperCase()} (TOTAL)`,money(tp)+note(src)]];
+  G("avgsub").innerHTML=`Média mensal de ${nC} contrato${nC===1?"":"s"} com unidades • linhas finas = cada contrato • tendência ${evTrend(EA)} • projeção ${rp}: <b>${money(sA.pj)}</b> por contrato`;
  }
  G("kpi").innerHTML=kpi.map(([l,v])=>`<div class="card"><div class="lbl">${l}</div><div class="metric" style="font-size:20px">${v}</div></div>`).join("");
- G("avg").innerHTML=evSVG(avg,EVX.txt,act,mode==="p"?avgOv:null,1280,300)+leg;
+ G("avgbtn").innerHTML=`<button class="ico only-edit" data-prj="${AVG}" data-md="${mode}" style="font-size:11px">✎ Editar média</button>`;
+ G("avg").innerHTML=evSVG(avg,EVX.txt,act,EA,1280,300)+leg;
+ G("avged").innerHTML=EDIT&&EDP===mode+"|"+AVG?prjEditor(mode,AVG,avg,EA):"";
+ const hojeISO=new Date().toISOString().slice(0,10);
  G("grid").innerHTML=per.map(p=>{if(!p.rows.length)return`<div class="card"><b style="color:${p.cor}">${esc(p.c)}</b><div class="empty">Sem unidades cadastradas neste contrato.</div></div>`;
-  const st=evStats(p.s),na=p.rows.filter(approved).length,ov=mode==="p"?(OV[p.c]||{}):{},ol=ov[last];
-  const info=mode==="p"?`Hoje: <b>${fp(st.hoje)}</b> (${na} de ${p.rows.length} unidades) • Projeção ${mlab(last)}: ${ol!=null?`<b>${fp(+ol)}</b> ajustada (automática ${fp(st.fim)})`:`<b>${fp(st.fim)}</b>`} • 100% previsto: <b>${st.meta}</b>`:`${rb}: <b>${money(st.base)}</b> • Projeção ${rp}: <b>${money(st.pj)}</b>`;
-  const hojeISO=new Date().toISOString().slice(0,10),fut=p.rows.filter(x=>approved(x)&&x.a>hojeISO),pl=fut.length>1?"s":"",warn=fut.length?`<div class="sub" style="font-size:12px;margin-top:4px;color:#fcd34d">⚠ ${fut.length} unidade${pl} com data de aprovação no futuro: ${fut.slice(0,3).map(x=>esc(x.u)+" ("+date(x.a)+")").join(", ")}${fut.length>3?"…":""}${mode==="p"?` — contada${pl} como aprovada${pl} no mês atual`:""}. Confira a data.</div>`:"";
-  const btn=mode==="p"?` <button class="ico only-edit" data-prj="${esc(p.c)}" style="font-size:11px;margin-left:6px">✎ Projeção</button>`:"";
-  return`<div class="card"><div class="evhead"><b style="color:${p.cor}">${esc(p.c)}</b><span style="font-size:12px;font-weight:800">${evTrend(st.rg)}${btn}</span></div><div class="sub" style="font-size:12px;margin-top:3px">${info}</div>${warn}${evSVG(p.s,p.cor,null,mode==="p"?ov:null)}${mode==="p"&&EDIT&&EDP===p.c?prjEditor(p,st):""}</div>`}).join("");
+  const E=p.E,st=evStats(p.s,E),na=p.rows.filter(approved).length,N=p.s.length,adj=E.manual?` <span class="sub">(ajustada; sugestão ${mode==="p"?fp(E.li<N-1?E.auto(N-1):st.hoje):money(st.apj)})</span>`:"";
+  const info=mode==="p"?`Hoje: <b>${fp(st.hoje)}</b> (${na} de ${p.rows.length} unidades) • Projeção ${mlab(last)}: <b>${fp(st.fim)}</b>${adj} • 100% previsto: <b>${st.meta}</b>`:`${rb}: <b>${money(st.base)}</b> • Projeção ${rp}: <b>${money(st.pj)}</b>${adj}`;
+  const fut=p.rows.filter(x=>approved(x)&&x.a>hojeISO),pl=fut.length>1?"s":"",warn=fut.length?`<div class="sub" style="font-size:12px;margin-top:4px;color:#fcd34d">⚠ ${fut.length} unidade${pl} com data de aprovação no futuro: ${fut.slice(0,3).map(x=>esc(x.u)+" ("+date(x.a)+")").join(", ")}${fut.length>3?"…":""}${mode==="p"?` — contada${pl} como aprovada${pl} no mês atual`:""}. Confira a data.</div>`:"";
+  return`<div class="card"><div class="evhead"><b style="color:${p.cor}">${esc(p.c)}</b><span style="font-size:12px;font-weight:800">${evTrend(E)} <button class="ico only-edit" data-prj="${esc(p.c)}" data-md="${mode}" style="font-size:11px;margin-left:6px">✎ Editar</button></span></div><div class="sub" style="font-size:12px;margin-top:3px">${info}</div>${warn}${evSVG(p.s,p.cor,null,E)}${EDIT&&EDP===mode+"|"+p.c?prjEditor(mode,p.c,p.s,E):""}</div>`}).join("");
 }
-
-function prjEditor(p,st){const ov=OV[p.c]||{};
- return`<div class="evedit" id="prjed" data-c="${esc(p.c)}"><div class="sub" style="font-size:12px;grid-column:1/-1">Digite o % projetado de cada mês (em branco = usa a tendência automática, mostrada em cinza).</div>${EV_PROJ.map(k=>{const i=EV_ALL.indexOf(k);return`<label class="sub" style="font-size:11px;font-weight:800">${mlab(k)}<input class="field" type="number" min="0" max="100" step="0.1" data-k="${k}" value="${ov[k]!=null?ov[k]:""}" placeholder="${st.rg?(Math.round(st.rg.at(i)*10)/10):""}" style="margin-top:4px"></label>`}).join("")}<div style="grid-column:1/-1;display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap"><button class="btn light" data-prjclr="1">Limpar campos</button><button class="btn light" data-prjcancel="1">Cancelar</button><button class="btn primary" data-prjsave="1">Salvar projeção</button></div></div>`}
-async function prjSave(c){const m={...(OV[c]||{})};let bad=false;
- document.querySelectorAll("#prjed input").forEach(i=>{const k=i.dataset.k,v=i.value.trim().replace(",",".");if(v==="")delete m[k];else if(isNaN(+v))bad=true;else m[k]=Math.round(Math.min(100,Math.max(0,+v))*10)/10});
- if(bad){alert("Use apenas números de 0 a 100.");return}
- const id="prj-"+TIPO+"-"+c;
- try{if(Object.keys(m).length)await api({action:"save",item:{x:id,c,u:"Projeção % (manual)",o:"",t:PRJT(),s:"Projeção",dt:new Date().toISOString().slice(0,10),v:0,r:"R00",e:JSON.stringify(m),a:null}});else if(OV[c])await api({action:"delete",id});EDP=null;await load();toast("Projeção salva.")}catch(e){alert(e.message)}}
-document.addEventListener("click",e=>{const t=e.target;
- const b=t.closest("[data-prj]");if(b){EDP=EDP===b.dataset.prj?null:b.dataset.prj;ev("p");return}
- if(t.closest("[data-prjcancel]")){EDP=null;ev("p");return}
- if(t.closest("[data-prjclr]")){document.querySelectorAll("#prjed input").forEach(i=>i.value="");return}
- if(t.closest("[data-prjsave]")&&EDP)prjSave(EDP)});
+function prjEditor(mode,c,s,E){
+ const pc=mode==="p",r1=v=>pc?Math.round(v*10)/10:Math.round(v*100)/100,stp=pc?"0.1":"0.01",lb='class="sub" style="font-size:11px;font-weight:800"';
+ const ms=EV_PROJ.map(k=>{const i=EV_ALL.indexOf(k);return`<label ${lb}>${mlab(k)} (${pc?"%":"R$"})<input class="field" type="number" min="0" ${pc?'max="100"':""} step="${stp}" data-k="${k}" data-i="${i}" data-a="${r1(E.auto(i))}" value="${E.m[k]!=null?E.m[k]:""}" placeholder="${r1(E.sug(i))}" style="margin-top:4px"></label>`}).join("");
+ return`<div class="evedit" id="prjed" data-md="${mode}" data-c="${esc(c)}" data-b0="${E.b0}" data-li="${E.li}">
+<div class="sub" style="font-size:12px;grid-column:1/-1">${c===AVG?"Editando a <b>média geral</b>. ":""}Em cinza está a sugestão. Você pode digitar o <b>ritmo</b> (tendência por mês) e/ou o <b>valor de cada mês</b>. Mês em branco segue o ritmo digitado; sem ritmo, segue a sugestão automática.</div>
+<label ${lb} style="grid-column:span 2">Ritmo (${pc?"p.p.":"R$"} por mês)<input class="field" type="number" step="${stp}" data-rt="1" value="${E.rt!=null?E.rt:""}" placeholder="${E.autoSlope!=null?r1(E.autoSlope):""}" style="margin-top:4px"></label>${ms}
+<div style="grid-column:1/-1;display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap"><button class="btn light" data-prjfill="1">Preencher com sugestão</button><button class="btn light" data-prjclr="1">Limpar campos</button><button class="btn light" data-prjcancel="1">Cancelar</button><button class="btn primary" data-prjsave="1">Salvar</button></div></div>`}
+function prjPh(){const ed=document.getElementById("prjed");if(!ed)return;const md=ed.dataset.md,b0=+ed.dataset.b0,li=+ed.dataset.li,rv=ed.querySelector("input[data-rt]").value.trim();
+ ed.querySelectorAll("input[data-k]").forEach(i=>{let v=rv===""||isNaN(+rv)?+i.dataset.a:b0+(+rv)*(+i.dataset.i-li);v=md==="p"?Math.min(100,Math.max(0,v)):Math.max(0,v);i.placeholder=md==="p"?Math.round(v*10)/10:Math.round(v*100)/100})}
+async function prjSave(mode,c){
+ const ed=document.getElementById("prjed"),old=OV[mode][c]||{m:{},r:null},m={...old.m};let bad=false;
+ ed.querySelectorAll("input[data-k]").forEach(i=>{const k=i.dataset.k,v=i.value.trim().replace(",",".");if(v==="")delete m[k];else if(isNaN(+v))bad=true;else m[k]=mode==="p"?Math.round(Math.min(100,Math.max(0,+v))*10)/10:Math.max(0,Math.round(+v*100)/100)});
+ const rv=ed.querySelector("input[data-rt]").value.trim().replace(",",".");if(rv!==""&&isNaN(+rv))bad=true;
+ if(bad){alert("Use apenas números.");return}
+ const r=rv===""?null:+rv,id=PRJID(mode,c),has=Object.keys(m).length>0||r!=null;
+ try{if(has)await api({action:"save",item:{x:id,c,u:(mode==="p"?"Projeção %":"Projeção R$")+" (manual)",o:"",t:PRJT(mode),s:"Projeção",dt:new Date().toISOString().slice(0,10),v:0,r:"R00",e:JSON.stringify({m,r}),a:null}});else if(OV[mode][c])await api({action:"delete",id});EDP=null;await load();toast("Projeção salva.")}catch(e){alert(e.message)}}
+document.addEventListener("click",e=>{const t=e.target,b=t.closest("[data-prj]");
+ if(b){const k=b.dataset.md+"|"+b.dataset.prj;EDP=EDP===k?null:k;ev(b.dataset.md);return}
+ const ed=document.getElementById("prjed");if(!ed||!ed.contains(t))return;const md=ed.dataset.md,c=ed.dataset.c;
+ if(t.closest("[data-prjcancel]")){EDP=null;ev(md);return}
+ if(t.closest("[data-prjclr]")){ed.querySelectorAll("input").forEach(i=>i.value="");prjPh();return}
+ if(t.closest("[data-prjfill]")){ed.querySelectorAll("input[data-k]").forEach(i=>{if(i.value==="")i.value=i.placeholder});return}
+ if(t.closest("[data-prjsave]"))prjSave(md,c)});
+document.addEventListener("input",e=>{if(e.target.matches&&e.target.matches("#prjed input[data-rt]"))prjPh()});
 
 async function api(body){if(!OK())throw new Error("Falta o endereço do Apps Script no código.");const r=await fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({...body,senha:PW})});const j=await r.json();if(!j.ok)throw new Error(j.error||"Erro ao gravar.");return j}
 async function load(manual,first){const G=id=>document.getElementById(id),vis=id=>G(id).style.display!=="none";try{if(!OK())throw 0;const r=await fetch(API+"?t="+Date.now(),{cache:"no-store"});const j=await r.json();if(!j.ok)throw 0;ALL=norm(j.items);setD();render();if(first)pmeFilters();views();if(manual)toast("Dados atualizados.")}catch(e){G("body").innerHTML='<tr><td colspan="10" class="empty">Não foi possível carregar os dados. Confira o endereço do Apps Script no código.</td></tr>'}}
@@ -306,7 +334,7 @@ async function loginToggle(){if(EDIT){PW="";sessionStorage.removeItem("pw");setM
 async function start(){if(PW){try{await api({action:"check"});setMode(true)}catch(e){PW="";sessionStorage.removeItem("pw")}}document.getElementById("body").innerHTML='<tr><td colspan="10" class="empty">Carregando dados...</td></tr>';await load(false,true)}
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&!EDP)load()});
 setInterval(()=>{if(!document.hidden&&!EDP&&!document.getElementById("modal").classList.contains("show"))load()},60000);
-const setD=()=>{d=ALL.filter(x=>x.t===TIPO);OV={};ALL.filter(x=>x.t===PRJT()).forEach(x=>{try{OV[x.c]=JSON.parse(x.e||"{}")}catch(e){}})};
+const setD=()=>{d=ALL.filter(x=>x.t===TIPO);OV={p:{},r:{}};ALL.forEach(x=>{if(x.t===PRJT("p"))OV.p[x.c]=prjParse(x.e);else if(x.t===PRJT("r"))OV.r[x.c]=prjParse(x.e)})};
 function views(){const vis=id=>document.getElementById(id).style.display!=="none";if(vis("an"))an();if(vis("graph"))charts();if(vis("evp"))ev("p");if(vis("evr"))ev("r");if(vis("pme"))renderPME()}
 function skin(){document.title="Legalizações "+TIPO+" — V2 PME";[["dash","Legalizações "+TIPO],["an","Análise por Contrato • "+TIPO],["graph","Projeção Financeira e PME • "+TIPO],["evp","Evolução e Tendência (%) • "+TIPO],["evr","Evolução e Tendência (R$) • "+TIPO],["pme","Controle PME • "+TIPO]].forEach(([id,t])=>document.querySelector("#"+id+" h1").textContent=t);document.getElementById("tB").classList.toggle("on",TIPO==="Bombeiros");document.getElementById("tP").classList.toggle("on",TIPO==="Prefeitura")}
 function setTipo(t){TIPO=t;EDP=null;try{sessionStorage.setItem("tipo",t)}catch(e){}setD();skin();render();pmeFilters();views()}
